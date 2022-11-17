@@ -18,8 +18,10 @@ RUN pip3 install ansible argcomplete
 # Install python module winrm
 RUN pip3 install pywinrm
 
-# Instasll ansible.windows
+# Install ansible.windows
 RUN ansible-galaxy collection install ansible.windows
 
+# Install openssh-clients
+RUN dnf install openssh-clients -y
 
 ENTRYPOINT ["tail", "-f", "/dev/null"]
