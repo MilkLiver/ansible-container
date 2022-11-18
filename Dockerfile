@@ -28,8 +28,12 @@ RUN dnf install openssh-clients -y
 # Installing the Kubernetes Collection for Ansible
 ## Install the OpenShift python client package
 RUN pip3 install openshift
+
+## Installing the Kubernetes Python Library
+RUN pip3 install kubernetes
+
 ## install the collection directly from Ansible Galaxy:
-RUN ansible-galaxy collection install community.kubernetes
+RUN ansible-galaxy collection install kubernetes.core
 
 
 ENTRYPOINT ["tail", "-f", "/dev/null"]
