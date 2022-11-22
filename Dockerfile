@@ -35,5 +35,8 @@ RUN pip3 install kubernetes
 ## install the collection directly from Ansible Galaxy:
 RUN ansible-galaxy collection install kubernetes.core
 
+## install openshift collection
+RUN ansible-galaxy collection install community.okd
+
 
 ENTRYPOINT ["tail", "-f", "/dev/null"]
