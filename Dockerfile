@@ -36,7 +36,7 @@ RUN pip3 install openshift
 RUN pip3 install kubernetes
 
 # ---------- pip jupyterlab install ----------
-pip3 install jupyterlab
+RUN pip3 install jupyterlab
 
 # ---------- ansible galaxy install ----------
 
