@@ -66,4 +66,4 @@ RUN echo "test:Test12345" | chpasswd
 RUN usermod -aG wheel test
 
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["/opt/sshd/startup.sh"]
