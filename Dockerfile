@@ -28,13 +28,15 @@ RUN ansible-galaxy collection install ansible.windows
 # Install openssh-clients
 RUN dnf install openssh-clients -y
 
-
 # Installing the Kubernetes Collection for Ansible
 ## Install the OpenShift python client package
 RUN pip3 install openshift
 
 ## Installing the Kubernetes Python Library
 RUN pip3 install kubernetes
+
+# ---------- pip jupyterlab install ----------
+RUN pip3 install jupyterlab
 
 # ---------- ansible galaxy install ----------
 
@@ -43,7 +45,6 @@ RUN ansible-galaxy collection install kubernetes.core
 
 ## install openshift collection
 RUN ansible-galaxy collection install community.okd
-
 
 # ---------- init shell ----------
 RUN mkdir -p /opt/sshd
@@ -64,6 +65,5 @@ RUN echo "root:Admin12345" | chpasswd
 RUN useradd -u 1000 -m test
 RUN echo "test:Test12345" | chpasswd
 RUN usermod -aG wheel test
-
 
 ENTRYPOINT ["/opt/sshd/startup.sh"]
